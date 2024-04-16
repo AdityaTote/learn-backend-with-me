@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>EJS TAGS</title>
+</head>
+<body>
+    <h1><%= title%></h1>
+    <p>Current Seconds: <%= seconds %></p>
+    <ul><% if (seconds % 2 === 0) { %>
+        <!-- <% for (let i = 0; i < items.length; i++) { %>
+            <li>
+            <%= items[i]; %>
+        </li>
+       <% } %> -->
+
+        <% items.forEach(fruit => { %>
+            <li><%= fruit %></li>
+       <% }); %>
+
+
+
+    </ul>
+   <% } else { %> 
+    <p>No data in items list</p> 
+   <% } %> </p>
+   <p><%- htmlContent %></p>
+   <%- include("footer.ejs") %>
+
+
+    
+    
+</body>
+</html>
