@@ -16,11 +16,11 @@ let randName;
 //Hint: Google to find out how to get the current year usi  ng JS.
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 
 app.get("/", (req, res) => {
   //Step 1 - Make the get route work and render the index.ejs file.
-  randomName()
   res.render("index.ejs")
 
 });
