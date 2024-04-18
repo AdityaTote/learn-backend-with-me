@@ -13,11 +13,11 @@ An API (Application Programming Interface) is like a waiter at a restaurant.It a
 
 ## Types of APIs
 
-**RESTful APIs:** Representational State Transfer (REST) is an architectural style for designing networked applications. RESTful APIs adhere to REST principles and use HTTP methods to perform CRUD (Create, Read, Update, Delete) operations on resources.
+* **RESTful APIs:** Representational State Transfer (REST) is an architectural style for designing networked applications. RESTful APIs adhere to REST principles and use HTTP methods to perform CRUD (Create, Read, Update, Delete) operations on resources.
 
-**SOAP APIs:** Simple Object Access Protocol (SOAP) is a protocol for exchanging structured information in the implementation of web services. SOAP APIs use XML for message formatting and rely on a set of standards for communication.
+* **SOAP APIs:** Simple Object Access Protocol (SOAP) is a protocol for exchanging structured information in the implementation of web services. SOAP APIs use XML for message formatting and rely on a set of standards for communication.
 
-**GraphQL APIs:** GraphQL is a query language for APIs and a runtime for executing those queries. It provides a more flexible and efficient alternative to REST APIs by allowing clients to request only the data they need in a single request.
+* **GraphQL APIs:** GraphQL is a query language for APIs and a runtime for executing those queries. It provides a more flexible and efficient alternative to REST APIs by allowing clients to request only the data they need in a single request.
 
 **We Will use {REST:API}, it is friendly for web dev**
 
