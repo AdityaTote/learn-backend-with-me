@@ -60,7 +60,7 @@ app.post("/",async (req,res) => {
         console.log(result);
         res.render("index.ejs",{ data: result[Math.floor(Math.random() * result.length)] })
       } catch (error) {
-        console.error(`Failed to make request:${err.message}`);
+        console.error(`Failed to make request:${error.message}`);
         res.render("index.ejs",{ error: "No activitiy is found of your certiria"});
       }
 })
