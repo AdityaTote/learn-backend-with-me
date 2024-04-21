@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main Content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero {
+    background-color: #f2f2f2;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.featured-posts,
+.recent-posts {
+    margin-bottom: 40px;
+}
+
+.post {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.post img {
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+    </style>
+</head>
+<body>
+  <header>
+    <h1>My Blog</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/blog/new">Create New Post</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to My Blog</h1>
+            <p>Explore the latest articles and insights.</p>
+        </section>
+
+        <section class="featured-posts">
+            <h2>Featured Posts</h2>
+            
+        </section>
+
+        <section class="recent-posts">
+            <h2>Recent Posts</h2>
+            <ul>
+                
+                <!-- Add more recent posts here -->
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
