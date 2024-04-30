@@ -42,9 +42,15 @@ async function handleGetAnalytic (req,res) {
     })
 }
 
+async function handleResult (req,res) {
+  const result = await URL.find({})
+  res.render("home",{
+    urls: result
+  })
+}
 
 
 export {handleGenerateNewShortURL,
         handleLinkClick,
         handleGetAnalytic,
-        }
+        handleResult}
