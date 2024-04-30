@@ -4,14 +4,16 @@ import { URL } from "../models/url.models.js"
 async function handleGenerateNewShortURL (req,res) {
     const body = req.body;
     const shortId = nanoid(8);
-    if(!body.redirectURL) res.status(401).json({ err:"Plz entre url"});
+    if(!body.url) res.status(401).json({ err:"Plz entre url"});
 
     await URL.create({
         shortId: shortId,
-        redirectURL: body.redirectURL,
+        redirectURL: body.url,
         visitHistory: []
     })
-    res.json({msg:"Succes"});
+    res.render("home", {
+      id: shortId
+    })
 }
 
 async function handleLinkClick (req,res) {
@@ -40,6 +42,9 @@ async function handleGetAnalytic (req,res) {
     })
 }
 
+
+
 export {handleGenerateNewShortURL,
         handleLinkClick,
-        handleGetAnalytic}
+        handleGetAnalytic,
+        }
