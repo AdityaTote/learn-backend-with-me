@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid"
 import { URL } from "../models/url.models.js"
 
+//GenerateNewShortURL
 async function handleGenerateNewShortURL (req,res) {
     const body = req.body;
     const shortId = nanoid(8);
@@ -9,12 +10,14 @@ async function handleGenerateNewShortURL (req,res) {
     await URL.create({
         shortId: shortId,
         redirectURL: body.url,
-        visitHistory: []
+        visitHistory: [],
+        createdBy: req.user._id,
     })
     res.render("home", {
       id: shortId
     })
 }
+
 
 async function handleLinkClick (req,res) {
     const shortId = req.params.shortId;
@@ -33,6 +36,7 @@ async function handleLinkClick (req,res) {
     res.redirect(entry.redirectURL);
 }
 
+//counts Link clicks
 async function handleGetAnalytic (req,res) {
     const shortId = req.params["shortId"];
     const result = await URL.findOne({shortId});
@@ -43,7 +47,8 @@ async function handleGetAnalytic (req,res) {
 }
 
 async function handleResult (req,res) {
-  const result = await URL.find({})
+  if(!req.user) return res.redirect("/login")
+  const result = await URL.find({createdBy: req.user._id});
   res.render("home",{
     urls: result
   })

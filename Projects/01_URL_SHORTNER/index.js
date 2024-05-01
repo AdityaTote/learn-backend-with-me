@@ -1,8 +1,16 @@
 import express from "express";
 import path from "path";
-import {urlRouter} from "./routes/index.routers.js";
-import {staticRouter} from "./routes/static.route.js";
+import cookieParser from "cookie-parser";
+
+// MONGO CONNECTION Import
 import {connectMongoDB} from "./connection.js";
+
+// Routes Imports
+import { urlRouter } from "./routes/urls.routes.js";
+import {staticRouter} from "./routes/static.routes.js";
+import { userRoute } from "./routes/user.routes.js";
+
+import { restrictToLoggedinUserOnly,checkAuth} from "./middlewares/auth.middlewares.js"
 
 const port = 3001;
 const app = express();
@@ -16,14 +24,16 @@ connectMongoDB(`${MongoURL}/short-url`)
 //middlewares
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());  
+app.use(cookieParser());
 
 // Setting ejs files in views folder
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
 //Routes
-app.use("/",staticRouter);
-app.use("/url",urlRouter);
+app.use("/url", restrictToLoggedinUserOnly, urlRouter);
+app.use("/", checkAuth, staticRouter);
+app.use("/user",userRoute);
 
 
 //listeners 
