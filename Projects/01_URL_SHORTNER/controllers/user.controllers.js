@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid"; //For statefull Auth
 
 import { setUser} from "../utils/auth.utils.js";
 import { User } from "../models/user.models.js";
@@ -26,9 +26,9 @@ async function handleUserLogin (req,res) {
         if (!user){
             res.render("login", { ERR: "Invalid Email or Passwaord"})
         }
-        const sessionId = uuidv4();
-        setUser(sessionId ,user);
-        res.cookie("uid",sessionId);
+        // const sessionId = uuidv4();   //For statefull Auth
+        const token = setUser(user);
+        res.cookie("uid", token);
         res.redirect("/");
     } catch(err){
         res.status(404).json(err.message)

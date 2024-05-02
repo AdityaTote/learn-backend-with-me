@@ -1,11 +1,27 @@
-const sessionIdToUser = new Map();
+import jwt from "jsonwebtoken";
 
-function setUser(id , user){
-    return sessionIdToUser.set(id, user);
+// const sessionIdToUser = new Map();     // we do not need this
+const secretKey = "HighlySecured@Key$";
+
+function setUser(user){
+    // return sessionIdToUser.set(id, user);  // for statefull auth 
+    const payload = {
+        _id: user._id,
+        email: user.email
+    }
+    return jwt.sign(payload, secretKey);
 }
 
-function getUser(id) {
-    return sessionIdToUser.get(id);
+function getUser(token) {
+    // return sessionIdToUser.get(id);  //for statefull auth
+    if(!token){
+         return null;
+    }
+    try {
+    return jwt.verify(token, secretKey)
+    } catch(err){
+        console.log(err.message);
+    }
 }
 
 export {
