@@ -47,15 +47,21 @@ async function handleGetAnalytic (req,res) {
 }
 
 async function handleResult (req,res) {
-  if(!req.user) return res.redirect("/login")
   const result = await URL.find({createdBy: req.user._id});
   res.render("home",{
     urls: result
   })
 }
 
+async function handleAllResult (req,res) {
+  const result = await URL.find({});
+  res.render("home",{
+    urls: result
+  })
+}
 
 export {handleGenerateNewShortURL,
         handleLinkClick,
         handleGetAnalytic,
-        handleResult}
+        handleResult,
+        handleAllResult}

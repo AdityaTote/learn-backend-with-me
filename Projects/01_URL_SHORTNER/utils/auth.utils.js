@@ -7,7 +7,8 @@ function setUser(user){
     // return sessionIdToUser.set(id, user);  // for statefull auth 
     const payload = {
         _id: user._id,
-        email: user.email
+        email: user.email,
+        role: user.role
     }
     return jwt.sign(payload, secretKey);
 }

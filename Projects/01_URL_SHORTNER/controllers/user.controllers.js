@@ -24,16 +24,16 @@ async function handleUserLogin (req,res) {
     try{
         const user = await User.findOne  ({ email, password})
         if (!user){
-            res.render("login", { ERR: "Invalid Email or Passwaord"})
+            return res.render("login", { ERR: "Invalid Email or Passwaord"})
         }
         // const sessionId = uuidv4();   //For statefull Auth
         const token = setUser(user);
         res.cookie("uid", token);
-        res.redirect("/");
+        return res.redirect("/");
     } catch(err){
-        res.status(404).json(err.message)
+        return res.status(404).json(err.message)
     }
-} 
+}
 
 
 export { handleUserSignup, handleUserLogin}
