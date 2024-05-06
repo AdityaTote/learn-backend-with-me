@@ -24,7 +24,7 @@ client.on("messageCreate", async (message) => {
     // If Hello is input from user then it reply by the content  
     if(message.content.startsWith("Hello")){
         message.reply({
-            content: `Hello ${message.author.username}`
+            content: `Hello ${message.author.globalName}`
         });
     }
 
