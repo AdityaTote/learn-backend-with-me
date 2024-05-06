@@ -1,15 +1,6 @@
 import { getUser } from "../utils/auth.utils.js";
 
-async function checkAu7th(req, res, next) {
-    const userUid = req.cookies?.uid;
-  
-    const user = getUser(userUid);
-  
-    req.user = user;
-    next();
-  }
-
-  function checkAuth(req,res,next){
+function checkAuth(req,res,next){
     const tokenCookie = req.cookies?.uid;
     req.user = 0;
     if (!tokenCookie){
@@ -25,7 +16,7 @@ async function checkAu7th(req, res, next) {
     return next();
   }
 
-  function restriTo(roles = []){
+function restriTo(roles = []){
     return function(req,res,next){
       if(!req.user.role){
         return res.redirect("/login")
