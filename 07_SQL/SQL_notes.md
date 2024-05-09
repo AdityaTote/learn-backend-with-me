@@ -164,4 +164,12 @@ CREATE TABLE orders (
 
 * The INNER JOIN keyword returns only rows with a match in both tables.
 
-* After providing the relation , the tabe has to be join so INNER JOIN is used to join the table. 
+* After providing the relation , the tabe has to be join so INNER JOIN is used to join the table.
+**Syntax**
+```sql
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+```
+  
