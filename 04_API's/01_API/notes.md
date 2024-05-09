@@ -55,7 +55,3 @@ An API (Application Programming Interface) is like a waiter at a restaurant.It a
     It is used to fetch a data for more specific data. 
     In the api url in path-parameter we have to specific resorce like id ,key , username,etc.
     BASEURL/endpoint/{path-parameter}
-
-    
-
-
