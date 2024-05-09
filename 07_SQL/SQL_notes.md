@@ -16,7 +16,7 @@
 
 ### OPERATION IN SQL:
 
-As like all databases it follows CRUD Operations which means :
+Like all databases it follows CRUD Operations which means :
 **C: Create**
 **R: Read**
 **U: Update**
