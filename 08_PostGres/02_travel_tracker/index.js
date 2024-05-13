@@ -1,37 +1,22 @@
 import express from "express";
-import pg from "pg";
+
+import { displayRouter } from "./routes/maps.routes.js"
+import { db } from "./db/confing.db.js"
 
 const port = 3000;
 const app = express();
-const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "world",
-    password: "12345",
-    port: 5432
-})
 
-db.connect();
+// database connection
+db.connect()
 
-   
-
+// middlewares
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static("public"));
 
-app.get("/",async (req,res) => {
-    let countries = [];
-    const result = await db.query("SELECT country_code FROM visted_countries");
-    result.rows.forEach((country) => {
-        countries.push(country.country_code);
-      });
-      let count = countries.length
+//routes
+app.use("/",displayRouter)
 
-    res.render("index.ejs", { 
-        countries: countries,
-        total: count
-    })
-})
-
-app.listen(port,() => {
-    console.log(`Server is listening on: http://localhost:${port}`);
+// listener
+app.listen(port, () => {
+    console.log(`SERVER IS LISTEINING ON: http://localhost:${port}`);
 })
