@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Your File</h2>
+        <div class="file-upload">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="file-upload-input" class="file-upload-label">Choose File</label>
+            <input type="file" id="file-upload-input" name="file_upload">
+            <div class="file-upload-info">Max file size: 5MB</div>
+        </div>
+        <button id="upload-button">Upload</button>
+    </form>
+    </div>
+</body>
+</html>
