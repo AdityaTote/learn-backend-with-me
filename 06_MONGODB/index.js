@@ -5,7 +5,7 @@ import { connectMongoDb } from "./connection.js";
  
 const port = 3000;
 const app = express();
-const URI ="mongodb://127.0.0.1:27017";   // space in url also lead to coonection error
+const URI ="YOUR MONGODB URL";   // space in url also lead to coonection error
 
 //Coonection of MongoDB
 connectMongoDb(`${URI}/test-01`)
