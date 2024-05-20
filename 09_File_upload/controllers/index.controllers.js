@@ -14,5 +14,5 @@ async function handleFileUpload(req,res){
 
 export {
     handlePage,
-    handleFileUpload
+    handleFileUpload,
 }

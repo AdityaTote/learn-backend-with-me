@@ -1,9 +1,6 @@
 import { Router } from "express";
 
-import { 
-        handlePage, 
-        handleFileUpload 
-        } from "../controllers/index.controllers.js";
+import { handlePage, handleFileUpload } from "../controllers/index.controllers.js"
 import { upload } from "../utils/store.utils.js"
 
 const route = Router()

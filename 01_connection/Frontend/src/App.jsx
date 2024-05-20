@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';  // axios is smae as fetch but here we no have to parde jsn format file.
 import './App.css';
 
-
 function App() {
   const [movies, setMovies] = useState( [] )  
   
   useEffect(() => {
-    axios.get('/api/movies')         
+    axios.get('/api/movies')
     .then((res) => {
       setMovies(res.data)
     }).catch((error) => {
