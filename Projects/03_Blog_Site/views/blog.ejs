@@ -10,11 +10,11 @@
         <main class="container my-5 ">
             <article class="blog-post">
                 <h2 class="post-title"><%= blog.title %></h2>
+                <h6>Posted By <img src="/<%= blog.createdBy.profileImageUrl  %>" width="50px"> <%= blog.createdBy.fullName  %> </h6>
                 <img class="post-img img-fluid rounded" src="<%= blog.coverImg %>" width="700px" alt="Blog Post Image">
                 <pre class="post-content mt-3">
                     <%= blog.content %>
                 </pre>
-                <img src="/<%= blog.createdBy.profileImageUrl  %>" width="50px"> <%= blog.createdBy.fullName  %>
             </article>
         </main>
     </div>
@@ -34,7 +34,7 @@
         <% } %>
         <div class="container  mt-3 ">
             <% comments.forEach(comment => { %>
-                <img src="/<%= blog.createdBy.profileImageUrl  %>" width="50px"> <%= blog.createdBy.fullName  %>
+                <img src="/<%= comment.createdBy.profileImageUrl  %>" width="50px"> <%= comment.createdBy.fullName  %>
                 <pre><%=  comment.content  %></pre>
             <% }) %>
         </div>

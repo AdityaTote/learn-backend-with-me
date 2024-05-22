@@ -3,6 +3,7 @@ import { Comment } from "../models/comment.models.js";
 // Send the comment to db  
 async function handleComment(req,res){
     const content  = req.body.content;
+    console.log(req.user);
     const comment = await Comment.create({
         content,
         blogId: req.params.blogId,
