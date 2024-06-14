@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import { hashPass,
+  checkPass,
+  createJwtToken } from "../utils/auth.utils.js"
 
 const userSchema = new mongoose.Schema({
   fullName: {
@@ -29,10 +32,6 @@ const userSchema = new mongoose.Schema({
 {timestamps:true}
 );
 
-// Hash Password
-import { hashPass,
-         checkPass,
-         createJwtToken } from "../utils/auth.utils.js"
 
 // Normal Pass to Hash Pass
 userSchema.pre('save', function(next){

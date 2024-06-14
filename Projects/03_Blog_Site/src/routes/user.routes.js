@@ -11,11 +11,18 @@ import {
 const userRoute = Router();
 
 userRoute
- .get('/login', handleLoginDisplay)
- .post('/login',handleLoginUser)
- .get('/signup', handleSignupDisplay)
- .post('/signup', handeSignupUser)
- .get('/logout', handleUserLogout)
+    .route("/login")
+    .get(handleLoginDisplay)
+    .post(handleLoginUser)
+
+userRoute
+    .route("/signup")
+    .get(handleSignupDisplay)
+    .post(handeSignupUser)
+
+userRoute
+    .route("/logout")
+    .get(handleUserLogout)
 
 
 export { userRoute }
